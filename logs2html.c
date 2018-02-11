@@ -7,6 +7,8 @@
  *
  * Patch and some changes to v.2.3.4 by skiidoo (2007)
  *
+ * Modified by MERKATOR(merkator@merkator.pro - 2018)
+ *
  */
 /*
  * This program is free software; you can redistribute it and/or
@@ -25,7 +27,7 @@
  */
 
 
-#define MODULE_NAME "logs2html"
+#define MODULE_NAME "logs2html with support of Tcl/Tk => 8.6 & Eggdrop => 1.8 enchanced By MERKATOR"
 #define MAKING_LOGS2HTML
 #include "src/mod/module.h"
 
@@ -44,9 +46,9 @@
 #undef global
 
 #define MODULE_MAJOR 2
-#define MODULE_MINOR 4
+#define MODULE_MINOR 5
 #define MODULE_SUBMINOR 3
-#define MODULE_BUILD "-1f7c9d8 (unofficial)"
+#define MODULE_BUILD "Builded with support of Tcl/Tk => 8.6 & Eggdrop => 1.8 By MERKATOR"
 
 static Function *global = NULL;
 
@@ -164,14 +166,14 @@ static void makeindexpage(l2hchan_t *ch, int year) {
 		return;
 	}
 
-	str_write(file, "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
-	str_write(file, "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
+	str_write(file, "<!DOCTYPE html\">\n");
 	str_write(file, "<head>\n");
 	if (strlen(encoding_string) > 0) {str_write(file, "\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=%s\" />\n", encoding_string); }
 	str_write(file, "\t<meta name=\"title\" content=\"%s\" />\n", ch->mainpagetitle);
 	str_write(file, "\t<meta name=\"description\" content=\"%s\" />\n", ch->mainpagetitle);
 	str_write(file, "\t<meta name=\"generator\" content=\"logs2html module for Eggdrop v.%d.%d.%d%s\" />\n", MODULE_MAJOR, MODULE_MINOR, MODULE_SUBMINOR, MODULE_BUILD);
 	str_write(file, "\t<meta name=\"author\" content=\"Fedotov Alexander aka shurikvz aka shmupsik\" />\n");
+		str_write(file, "\t<meta name=\"enchance\" content=\"By MERKATOR <merkator@merkator.pro>\" />\n");
 	str_write(file, "\t<meta name=\"keywords\" content=\"logs2html, logs, logging, channel, irc, bot, eggdrop, windrop, mirc, module, convert\" />\n");
 	str_write(file, "\t<meta name=\"robots\" content= \"index,all\" />\n");
 	str_write(file, "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"default.css\" />\n");
@@ -1652,12 +1654,7 @@ char *logs2html_start(Function *global_funcs)
 
 	/* Register the module. */
 	module_register(MODULE_NAME, logs2html_table, MODULE_MAJOR, MODULE_MINOR);
-
-	if (!module_depend(MODULE_NAME, "eggdrop", 106, 18)) {
-		module_undepend(MODULE_NAME);
-		return "This module requires Eggdrop 1.6.18 or later.";
-	}
-
+// Removed annoying check for version - but only eggdrop ver >1.6.18 works.
 	add_tcl_ints(my_tcl_ints);
 	add_tcl_strings(my_tcl_strings);
 	add_tcl_commands(my_tcl_cmds);

@@ -1,1 +1,1 @@
-Note: all precompiled modules for 2.3.4, not for 2.3.4.1!
+Note: no precompilled modules now :(
