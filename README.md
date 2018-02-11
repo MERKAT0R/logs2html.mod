@@ -1,4 +1,5 @@
 # logs2html.mod
+
 Fork of logs2html module for eggdrop. Main project page: http://sourceforge.net/projects/logs2html/
 
 logs2html.mod v.2.4.3.1 by shmupsik aka shurikvz
@@ -23,15 +24,6 @@ Module has 4 commands, which you can use from dcc chat:
  - makemainpage				- redraws mainpages
  - makeindexpage			- same as ".makemainpage"
 *******************************************************************************
-
-
-
-*******************************************************************************
-You can try to find latest version on http://sourceforge.net/projects/logs2html
-*******************************************************************************
-
-
-
 *******************************************************************************
 Version history:
 
@@ -100,12 +92,4 @@ Version history:
 
  16.12.04 - version 1.0
   - initial realise
-*******************************************************************************
-
-
-
-*******************************************************************************
-KNOWN PROBLEMS
-
-
 *******************************************************************************
