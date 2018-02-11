@@ -11,10 +11,6 @@ This module converts the log files of your eggdrop to the html format. It also c
 To install this module:
  - edit and copy logs2html.conf file to your eggdrop directory
  - for (*nix) copy logs2html.mod to the source directory of your eggdrop (src/mod), then as usual: make iconfig && make && make install)
- - for windows:
-	- copy the contents of "language" directory to your windrop "language" directory
-	- copy the contents of "help" directory to your windrop "help" directory
-	- copy *.dll (/precompiled) to windrop "modules" directory
  - if you decide to use your own style for pages edit and copy user.css file to your logs output directory
  - put string "source logs2html.conf" into your eggdrop config file and restart your bot
 
